@@ -7,53 +7,53 @@ class Book
 public:
    string name;
    int price;
-   int numberOfPages;
+   int number_of_pages;
    string author;
    int quantity;
-   int numberOfSales;
+   int number_of_sales;
 
    Book(){};
 
-   Book(string name_, int price_, int numberOfPages_, string author_, int quantity_, int numberOfSales_)
+   Book(string name, int price, int number_of_pages, string author, int quantity, int number_of_sales)
    {
-      name = name_;
-      price = price_;
-      numberOfPages = numberOfPages_;
-      author = author_;
-      quantity = quantity_;
-      numberOfSales = numberOfSales_;
+      this->name = name;
+      this->price = price;
+      this->number_of_pages = number_of_pages;
+      this->author = author;
+      this->quantity = quantity;
+      this->number_of_sales = number_of_sales;
    }
 
-   void InformationBook()
+   void InformationOfBook()
    {
-      cout << "Name = " << name << "  Price = " << price << "  Number of Pages = " << numberOfPages << "  Author = " << author << "  Quantity = " << quantity << "  Number of sales = " << numberOfSales << endl;
+      cout << "Name = " << name << "  Price = " << price << "  Number of Pages = " << number_of_pages << "  Author = " << author << "  Quantity = " << quantity << "  Number of sales = " << number_of_sales << endl;
    }
 };
 
 class BookShop
 {
 public:
-   int NumberOfBooks = 0;
+   int number_of_books = 0;
    Book ArrayBook[99];
    Book ArrayBook_2[1];
 
-   void BookAdd(Book Book_)
+   void BookAdd(Book book_name)
    {
-      ArrayBook[NumberOfBooks] = Book_;
-      NumberOfBooks++;
+      ArrayBook[number_of_books] = book_name;
+      number_of_books++;
    }
-   void BookDel(string BookName)
+   void BookDel(string book_name)
    {
-      for (int t = 0; t < NumberOfBooks; t++)
+      for (int t = 0; t < number_of_books; t++)
       {
-         if (ArrayBook[t].name == BookName)
+         if (ArrayBook[t].name == book_name)
          {
-            for (int p = t; p < NumberOfBooks; p++)
+            for (int p = t; p < number_of_books; p++)
             {
                ArrayBook[t] = ArrayBook[t + 1];
                t++;
             }
-            NumberOfBooks--;
+            number_of_books--;
             break;
          }
       }
@@ -61,16 +61,16 @@ public:
    void SeeAllBooks()
    {
       cout << "----------------------------------------------Without Sort--------------------------------------------------------" << endl;
-      for (int i = 0; i < NumberOfBooks; i++)
+      for (int i = 0; i < number_of_books; i++)
       {
-         ArrayBook[i].InformationBook();
+         ArrayBook[i].InformationOfBook();
       }
    }
    void SeeAllBook_ByPrice()
    {
-      for (int i = 1; i < NumberOfBooks; i++)
+      for (int i = 1; i < number_of_books; i++)
       {
-         for (int j = 1; j < NumberOfBooks; j++)
+         for (int j = 1; j < number_of_books; j++)
          {
             if (ArrayBook[j].price > ArrayBook[j - 1].price)
             {
@@ -82,18 +82,18 @@ public:
       }
 
       cout << "------------------------------------------------By Price-----------------------------------------------------------" << endl;
-      for (int i = 0; i < NumberOfBooks; i++)
+      for (int i = 0; i < number_of_books; i++)
       {
-         ArrayBook[i].InformationBook();
+         ArrayBook[i].InformationOfBook();
       }
    }
    void SeeAllBook_ByNumberOfSales()
    {
-      for (int i = 1; i < NumberOfBooks; i++)
+      for (int i = 1; i < number_of_books; i++)
       {
-         for (int j = 1; j < NumberOfBooks; j++)
+         for (int j = 1; j < number_of_books; j++)
          {
-            if (ArrayBook[j].numberOfSales > ArrayBook[j - 1].numberOfSales)
+            if (ArrayBook[j].number_of_sales > ArrayBook[j - 1].number_of_sales)
             {
                ArrayBook_2[0] = ArrayBook[j];
                ArrayBook[j] = ArrayBook[j - 1];
@@ -103,9 +103,9 @@ public:
       }
 
       cout << "---------------------------------------------By Number Of Sales-----------------------------------------------------" << endl;
-      for (int i = 0; i < NumberOfBooks; i++)
+      for (int i = 0; i < number_of_books; i++)
       {
-         ArrayBook[i].InformationBook();
+         ArrayBook[i].InformationOfBook();
       }
    }
 };
